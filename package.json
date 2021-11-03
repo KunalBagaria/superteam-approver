@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "build": "tsc",
+    "start": "nodemon dist/index.js",
+    "watch": "tsc --watch",
+    "dev": "nodemon dist/index.js"
   },
   "dependencies": {
     "@types/nodemailer": "^6.4.4",

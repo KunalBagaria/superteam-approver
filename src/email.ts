@@ -29,10 +29,10 @@ export default (applier: string, emailToSend: string) => {
     const subject: any = emailDetails[emailToSend]['subject']
 
     const mailOptions = {
-        from: 'instagrants@superteam.fun',
+        from: 'hello@superteam.fun',
         to: applier,
         subject: subject,
-        body: body
+        text: body
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
