@@ -15,7 +15,7 @@ const emailDetails = {
     }
 }
 
-export default (applier: string, emailToSend: string) => {
+export default async (applier: string, emailToSend: string) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -35,8 +35,6 @@ export default (applier: string, emailToSend: string) => {
         text: body
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) console.error(error);
-        if (info) console.log(info);
-    })
+    const response = await transporter.sendMail(mailOptions);
+    return response
 }

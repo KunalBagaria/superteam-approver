@@ -5,7 +5,7 @@ import emojis from './emoji'
 
 dotenv.config()
 
-const approvers = ['687746817701576759']
+const approvers = ['687746817701576759', '510479576259100672']
 
 const client = new Client({
     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS],
@@ -24,10 +24,15 @@ client.on('messageReactionAdd', (reaction, user) => {
                 const messageID = reaction.message.id;
                 const orginalMessage = await reaction.message.channel.messages.fetch(messageID)
                 const content = orginalMessage.content.split('\n')
-                content.forEach((line) => {
+                content.forEach(async (line) => {
                     if (line.includes('Contact')) {
                         const emailAddress = line.split('Contact: ')[1]
-                        sendMail(emailAddress, emoji.message)
+                        const sent = await sendMail(emailAddress, emoji.message)
+                        if (sent.accepted.length > 0) {
+                            reaction.message.reply(`Sent email to ${sent.accepted[0]}`)
+                        } else {
+                            reaction.message.reply(`Could not send email to ${emailAddress}`)
+                        }
                     }
                 })
             }
