@@ -1,21 +1,30 @@
 import nodemailer from 'nodemailer'
 
-const emailDetails = {
-    approved: {
-        subject: 'Your InstaGrants application has been approved!',
-        body: 'You will be receiving the full grant amount and the next steps shortly'
-    },
-    rejected: {
-        subject: 'Your InstaGrants application has been rejected',
-        body: 'We are sorry to inform you that your application has been rejected. Please contact us if you have any questions.'
-    },
-    meeting: {
-        subject: 'Additionals details required for your InstaGrants application',
-        body: 'Please reply to this email to schedule a meeting with us to provide additional details about your project'
-    }
-}
+const template = (accepted: boolean): string => (
+`
+Hello,
 
-export default async (applier: string, emailToSend: string) => {
+Thanks for applying for a Superteam Instagrant. ${accepted ? 'Happy to inform you that the grant application has been accepted, and you will receive the amount shortly. Until then, please fill in the grant onboarding form available at - https://airtable.com/shrR1FTUDMCoGFoSY.' : 'However, we regret to inform you that your project is not currently a good fit for us right now. We hope you apply again down the line.'}
+${accepted ? '\nDM me at @ neilshroff#2180 for your role to be changed to a Member (if not already a member) and for any other queries. \n' : ''}
+Best,
+Neil from Superteam
+`
+)
+
+const emailDetails = (project: string) => (
+    {
+        approved: {
+            subject: `Your InstaGrants application for ${project} has been approved!`,
+            body: template(true)
+        },
+        rejected: {
+            subject: `Your InstaGrants application for ${project} has been rejected`,
+            body: template(false)
+        }
+    }
+)
+
+export default async (applier: string, project: string, emailToSend: string) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -23,10 +32,11 @@ export default async (applier: string, emailToSend: string) => {
             pass: process.env['EMAIL_PASS']
         }
     })
+    const emailObject = emailDetails(project)
     // @ts-ignore
-    const body: any = emailDetails[emailToSend]['body']
+    const body: any = emailObject[emailToSend]['body']
     // @ts-ignore
-    const subject: any = emailDetails[emailToSend]['subject']
+    const subject: any = emailObject[emailToSend]['subject']
 
     const mailOptions = {
         from: 'hello@superteam.fun',
@@ -36,5 +46,5 @@ export default async (applier: string, emailToSend: string) => {
     };
 
     const response = await transporter.sendMail(mailOptions);
-    return response
+    return { response, body, subject }
 }

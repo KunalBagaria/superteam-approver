@@ -24,17 +24,23 @@ client.on('messageReactionAdd', (reaction, user) => {
                 const messageID = reaction.message.id;
                 const orginalMessage = await reaction.message.channel.messages.fetch(messageID)
                 const content = orginalMessage.content.split('\n')
+                let emailAddress = ''
+                let project = ''
                 content.forEach(async (line) => {
                     if (line.includes('Contact')) {
-                        const emailAddress = line.split('Contact: ')[1]
-                        const sent = await sendMail(emailAddress, emoji.message)
-                        if (sent.accepted.length > 0) {
-                            reaction.message.reply(`Sent email to ${sent.accepted[0]}`)
-                        } else {
-                            reaction.message.reply(`Could not send email to ${emailAddress}`)
-                        }
+                        emailAddress = line.split('Contact: ')[1]
+                    } else if (line.includes('Project')) {
+                        project = line.split('Project: ')[1]
                     }
                 })
+                const { response, body, subject } = await sendMail(emailAddress, project, emoji.message)
+                if (response.accepted.length > 0) {
+                    reaction.message.reply(`Sent email to ${response.accepted[0]}`)
+                    reaction.message.channel.send(`\`\`\`\n${subject}\`\`\``)
+                    reaction.message.channel.send(`\`\`\`\n${body}\`\`\``)
+                } else {
+                    reaction.message.reply(`Could not send email to ${emailAddress}`)
+                }
             }
         })
     }
