@@ -5,7 +5,7 @@ import emojis from './emoji'
 
 dotenv.config()
 
-const approvers = ['687746817701576759', '510479576259100672']
+const approvers = ['687746817701576759', '510479576259100672', '355979301750833162']
 
 const client = new Client({
     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS],
