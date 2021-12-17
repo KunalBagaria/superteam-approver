@@ -1,4 +1,4 @@
-import { Client, Intents, Options } from 'discord.js'
+import { Client, Intents, Options, TextChannel } from 'discord.js'
 import dotenv from 'dotenv'
 import sendMail from './email'
 import emojis from './emoji'
@@ -35,9 +35,11 @@ client.on('messageReactionAdd', (reaction, user) => {
                 })
                 const { response, body, subject } = await sendMail(emailAddress, project, emoji.message)
                 if (response.accepted.length > 0) {
-                    reaction.message.reply(`Sent email to ${response.accepted[0]}`)
-                    reaction.message.channel.send(`\`\`\`\n${subject}\`\`\``)
-                    reaction.message.channel.send(`\`\`\`\n${body}\`\`\``)
+                    const modChannel: TextChannel = await client.channels.cache.get('888684613097107509') as TextChannel
+                    if (!modChannel) return
+                    modChannel.send(`Sent email to ${response.accepted[0]}`)
+                    modChannel.send(`\`\`\`\n${subject}\`\`\``)
+                    modChannel.send(`\`\`\`\n${body}\`\`\``)
                 } else {
                     reaction.message.reply(`Could not send email to ${emailAddress}`)
                 }
