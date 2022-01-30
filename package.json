@@ -1,20 +1,22 @@
 {
-  "name": "instagrants",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "build": "tsc",
-    "start": "node dist/index.js",
-    "watch": "tsc --watch",
-    "dev": "nodemon dist/index.js"
-  },
-  "dependencies": {
-    "@types/nodemailer": "^6.4.4",
-    "discord.js": "^13.2.0",
-    "dotenv": "^10.0.0",
-    "nodemailer": "^6.7.0",
-    "nodemon": "^2.0.14",
-    "typescript": "^4.4.4"
-  }
+	"name": "approver-op",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc",
+		"start": "node dist/index.js",
+		"watch": "tsc --watch",
+		"dev": "nodemon dist/index.js"
+	},
+	"dependencies": {
+		"discord.js": "^13.2.0",
+		"dotenv": "^10.0.0",
+		"nodemailer": "^6.7.0",
+		"nodemon": "^2.0.14",
+		"typescript": "^4.4.4"
+	},
+	"devDependencies": {
+		"@types/nodemailer": "^6.4.4"
+	}
 }
