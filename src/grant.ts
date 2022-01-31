@@ -23,7 +23,7 @@ export const handleGrantReactions = (reaction: MessageReaction | PartialMessageR
 				if (!err) {
 					const modChannel: TextChannel = await reaction.message.client.channels.cache.get('888684613097107509') as TextChannel
 					if (!modChannel) return
-					modChannel.send(`Update Airtable record for the grant application`)
+					modChannel.send(`Updated Airtable record for the grant application to ${emoji.message}`)
 				} else {
 					const modChannel: TextChannel = await reaction.message.client.channels.cache.get('888684613097107509') as TextChannel
 					if (!modChannel) return
