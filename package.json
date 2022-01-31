@@ -10,6 +10,7 @@
 		"dev": "nodemon dist/index.js"
 	},
 	"dependencies": {
+		"airtable": "^0.11.1",
 		"discord.js": "^13.2.0",
 		"dotenv": "^10.0.0",
 		"nodemailer": "^6.7.0",
