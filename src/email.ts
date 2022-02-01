@@ -13,11 +13,11 @@ Neil from Superteam
 
 const emailDetails = (project: string) => (
     {
-        approved: {
+        Accepted: {
             subject: `Your InstaGrants application for ${project} has been approved!`,
             body: template(true)
         },
-        rejected: {
+        Rejected: {
             subject: `Your InstaGrants application for ${project} has been rejected`,
             body: template(false)
         }

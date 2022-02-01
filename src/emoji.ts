@@ -1,4 +1,4 @@
 export default [
-    { name: '✅', message: 'approved' },
-    { name: '❌', message: 'rejected' }
+    { name: '✅', message: 'Accepted' },
+    { name: '❌', message: 'Rejected' }
 ]
