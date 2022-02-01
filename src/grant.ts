@@ -15,10 +15,11 @@ export const handleGrantReactions = (reaction: MessageReaction | PartialMessageR
 			const content = orginalMessage.content.split('\n')
 			let UID = ''
 			content.forEach(async (line) => {
-				if (line.includes('UID')) {
-					UID = line.split('UID: ')[1]
+				if (line.includes('Record')) {
+					UID = line.split('Record: ')[1]
 				}
 			})
+			if (!UID) return
 			base('Applicants').update(UID, { "Status": emoji.message }, async (err, record) => {
 				if (!err) {
 					const modChannel: TextChannel = await reaction.message.client.channels.cache.get('888684613097107509') as TextChannel
