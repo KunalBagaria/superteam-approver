@@ -16,7 +16,7 @@ const approvers = ['687746817701576759', '510479576259100672', '3559793017508331
 
 const emojis = [
 	{ name: '✅', message: 'Accept' },
-    { name: '❌', message: 'Reject' }
+    { name: '❌', message: 'Decline' }
 ]
 
 export const handleBountyReactions = (reaction: MessageReaction | PartialMessageReaction, user: User | PartialUser) => {
@@ -33,12 +33,13 @@ export const handleBountyReactions = (reaction: MessageReaction | PartialMessage
 				}
 			})
 			if (!UID) return
-			base('Bounty Requests').update(UID, { "Status": emoji.message }, async (err, record) => {
+			base('Bounty Requests').update(UID, { "Decision": emoji.message }, async (err, record) => {
 				if (!err) {
 					const modChannel: TextChannel = await reaction.message.client.channels.cache.get('888684613097107509') as TextChannel
 					if (!modChannel) return
 					modChannel.send(`Updated Airtable record for the bounty application to ${emoji.message}`)
 				} else {
+					console.log(err)
 					const modChannel: TextChannel = await reaction.message.client.channels.cache.get('888684613097107509') as TextChannel
 					if (!modChannel) return
 					modChannel.send(`Error updating Airtable record`)
