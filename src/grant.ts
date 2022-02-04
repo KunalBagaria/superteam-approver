@@ -1,6 +1,9 @@
+import dotenv from 'dotenv'
 import Airtable from 'airtable'
 import emojis from './emoji'
 import { MessageReaction, PartialMessageReaction, TextChannel, User, PartialUser } from 'discord.js'
+
+dotenv.config()
 
 const { AIRTABLE_API_KEY } = process.env;
 const base = new Airtable({ apiKey: AIRTABLE_API_KEY }).base('appBkpMQNnJ45fCXK');

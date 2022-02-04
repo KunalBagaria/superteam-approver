@@ -16,7 +16,7 @@ const client = new Client({
 });
 
 client.once('ready', async () => {
-	console.log('Ready!');
+	console.log(`Logged in as ${client.user?.username}!`);
 });
 
 client.on('messageReactionAdd', (reaction, user) => {
