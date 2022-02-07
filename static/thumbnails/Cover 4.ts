@@ -1,5 +1,5 @@
 export const coverFour = (name: string, category: string, logo: string) =>
-`
+  `
 <svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g clip-path="url(#clip0_30_305)">
 <rect width="1920" height="1080" fill="white"/>

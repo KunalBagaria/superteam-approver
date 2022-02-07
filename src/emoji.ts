@@ -1,4 +1,9 @@
-export default [
-    { name: '✅', message: 'Accepted' },
-    { name: '❌', message: 'Rejected' }
+export default [{
+    name: '✅',
+    message: 'Accepted'
+  },
+  {
+    name: '❌',
+    message: 'Rejected'
+  }
 ]
