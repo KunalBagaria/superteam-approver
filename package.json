@@ -5,15 +5,18 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "tsc",
-		"start": "node dist/index.js",
+		"start": "node dist/src/index.js",
 		"watch": "tsc --watch",
-		"dev": "nodemon dist/index.js"
+		"dev": "nodemon dist/src/index.js"
 	},
 	"dependencies": {
 		"@notionhq/client": "^0.4.13",
 		"airtable": "^0.11.1",
+		"cloudinary": "^1.28.1",
 		"discord.js": "^13.2.0",
 		"dotenv": "^10.0.0",
+		"image-data-uri": "^2.0.1",
+		"node-fetch": "2.6.1",
 		"nodemailer": "^6.7.0",
 		"nodemon": "^2.0.14",
 		"typescript": "^4.4.4"

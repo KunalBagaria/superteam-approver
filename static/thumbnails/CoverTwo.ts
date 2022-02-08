@@ -9,7 +9,7 @@ export const coverTwo = (name: string, category: string, logo: string) =>
 <g style="mix-blend-mode:multiply" filter="url(#filter1_f_21_289)">
 <circle cx="173" cy="993" r="295" fill="#FFF500" fill-opacity="0.14"/>
 </g>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Poppins" font-size="72" letter-spacing="0.1em"><tspan x="140" y="835.2">${category}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Bebas Neue" font-size="72" letter-spacing="0.1em"><tspan x="140" y="835.2">${category}</tspan></text>
 <text fill="#2E283B" xml:space="preserve" style="white-space: pre" font-family="Bebas Neue" font-size="200" letter-spacing="0em"><tspan x="140" y="678">${name}</tspan></text>
 <mask id="mask0_21_289" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="140" y="197" width="250" height="250">
 <path d="M390 322C390 391.036 334.036 447 265 447C195.964 447 140 391.036 140 322C140 252.964 195.964 197 265 197C334.036 197 390 252.964 390 322Z" fill="#C4C4C4"/>

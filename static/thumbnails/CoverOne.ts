@@ -4,7 +4,7 @@ export const coverOne = (name: string, category: string, logo: string) =>
 <g clip-path="url(#clip0_18_225)">
 <rect width="1920" height="1080" fill="white"/>
 <rect x="-224" y="-644" width="2368" height="2368" fill="url(#pattern0)" fill-opacity="0.5"/>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Poppins" font-size="72" letter-spacing="0.1em"><tspan x="140" y="835.2">${category}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Bebas Neue" font-size="72" letter-spacing="0.1em"><tspan x="140" y="835.2">${category}</tspan></text>
 <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Bebas Neue" font-size="200" letter-spacing="0em"><tspan x="140" y="678">${name}</tspan></text>
 <mask id="mask0_18_225" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="140" y="197" width="250" height="250">
 <path d="M390 322C390 391.036 334.036 447 265 447C195.964 447 140 391.036 140 322C140 252.964 195.964 197 265 197C334.036 197 390 252.964 390 322Z" fill="#C4C4C4"/>

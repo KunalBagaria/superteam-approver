@@ -10,9 +10,6 @@ import {
 import {
   handleBountyReactions
 } from './bounty';
-// import {
-//   createNewNotionPage
-// } from './notion';
 
 dotenv.config()
 
@@ -24,7 +21,6 @@ const client = new Client({
 
 client.once('ready', async () => {
   console.log(`Logged in as ${client.user?.username}!`);
-  // createNewNotionPage();
 });
 
 client.on('messageReactionAdd', (reaction, user) => {
