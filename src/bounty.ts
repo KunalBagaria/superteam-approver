@@ -45,8 +45,8 @@ const acceptBountySubmission = async (modChannel: TextChannel, UID: string) => {
     modChannel.send('Trying to fetch details from Airtable...');
     const bounty = await base('Bounties').find(UID);
     const data = bounty._rawJson.fields;
-    const { Twitter, Name, Type } = data;
-    if (!Twitter || !Name || !Type) {
+    const { Twitter, Project, Type } = data;
+    if (!Twitter || !Project || !Type) {
       modChannel.send('Required details are not available.');
       return;
     }
@@ -59,8 +59,8 @@ const acceptBountySubmission = async (modChannel: TextChannel, UID: string) => {
     };
     modChannel.send('Generating banner...');
     const banner = await generateBanner({
-      name: Name,
-      description: Type,
+      name: Project,
+      description: Type.toString().split(' (')[0],
       logoURL: pfp
     });
     if (!banner) return;
@@ -75,7 +75,7 @@ const acceptBountySubmission = async (modChannel: TextChannel, UID: string) => {
     modChannel.send(bannerURL);
     modChannel.send('Creating new Notion page...');
     const notionResponse = await createNewNotionPage({
-      name: Name,
+      name: Project,
       bannerURL
     });
     modChannel.send('Successfully created new Notion page.');

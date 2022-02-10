@@ -20,7 +20,12 @@ const getImageURIFromURL = async (url: string) => {
   }
 }
 
-const covers = [coverOne, coverTwo, coverThree, coverFour];
+const covers = [
+  coverOne,
+  coverTwo,
+  coverThree,
+  coverFour
+];
 
 export const generateBanner = async (props: Banner) => {
   const logoURI = await getImageURIFromURL(props.logoURL);
