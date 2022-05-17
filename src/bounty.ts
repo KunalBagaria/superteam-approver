@@ -28,7 +28,7 @@ const {
 const base = new Airtable({
   apiKey: AIRTABLE_API_KEY
 }).base('appImjkVLmVfRHnrJ');
-const approvers = ['687746817701576759', '510479576259100672', '355979301750833162', '770226850508963860'];
+const approvers = ['687746817701576759', '510479576259100672', '355979301750833162', '770226850508963860', '804931477480669226'];
 
 const emojis = [{
     name: '✅',
