@@ -17,7 +17,7 @@ const {
 const base = new Airtable({
   apiKey: AIRTABLE_API_KEY
 }).base('appBkpMQNnJ45fCXK');
-const approvers = ['687746817701576759', '510479576259100672', '355979301750833162'];
+const approvers = ['687746817701576759', '510479576259100672', '355979301750833162', '770226850508963860'];
 
 export const handleGrantReactions = (reaction: MessageReaction | PartialMessageReaction, user: User | PartialUser) => {
   if (!approvers.includes(user.id) || reaction.message.channel.id !== '897627725383213147') return
